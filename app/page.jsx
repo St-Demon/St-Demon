@@ -32,7 +32,7 @@ export default function Home() {
               임동진의 사이버<br/><span className="text-accent">보안으로 안전을 지킵니다.</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              저는 사이버 보안 분야에 열정을 가지고 있으며, 시스템 보호와 데이터 안전을 위해 다양한 보안 기술과 도구를 꾸준히 공부하고 있습니다.
+              저는 사이버 보안 분야에 열정을 가지고 있으며 시스템 보호와 데이터 안전을 위해 다양한 보안 기술과 도구를 꾸준히 공부하고 있습니다.
             </p>
             {/* SNS */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
