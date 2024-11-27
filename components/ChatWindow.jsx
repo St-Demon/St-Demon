@@ -16,18 +16,19 @@ const ChatWindow = () => {
             setMessages((prevMessages) => [...prevMessages, { text: message, type: 'outgoing' }]);
 
             // 서버에 메시지를 보내고 응답을 처리
-            fetch('http://localhost:5000', {
+            fetch('https://www.backend.dongjinhub.store/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ 
-                    message: message // 'message'로 보내는 것 확인
+                    message: message, // 'message'로 보내는 것 확인
+                    mode: 'cors',
                 }), // 메시지 전달
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log("Received data:", data); // 돌아오는 데이터가 없다.
+                    console.log("Received data:", data); // 서버응답
                     // 서버로부터 받은 응답을 클라이언트에 추가
                     if (data.response) {
                         setMessages((prevMessages) => [
