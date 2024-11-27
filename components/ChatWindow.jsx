@@ -12,7 +12,7 @@ const ChatWindow = () => {
     const sendMessage = (message) => {
         if (message.trim()) {
             // 전송한 메시지 클라이언트에 추가
-            console.log("Sending message:", message);
+            // console.log("Sending message:", message); // 전송은 된다.
             setMessages((prevMessages) => [...prevMessages, { text: message, type: 'outgoing' }]);
 
             // 서버에 메시지를 보내고 응답을 처리
@@ -27,7 +27,7 @@ const ChatWindow = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log("Received data:", data);
+                    console.log("Received data:", data); // 돌아오는 데이터가 없다.
                     // 서버로부터 받은 응답을 클라이언트에 추가
                     if (data.response) {
                         setMessages((prevMessages) => [
