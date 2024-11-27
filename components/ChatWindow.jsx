@@ -16,7 +16,7 @@ const ChatWindow = () => {
             setMessages((prevMessages) => [...prevMessages, { text: message, type: 'outgoing' }]);
 
             // 서버에 메시지를 보내고 응답을 처리
-            fetch('https://backend.dongjinhub.store', {
+            fetch('https://backend.dongjinhub.store/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
