@@ -53,7 +53,7 @@ export default function Home() {
       <Stats/>
 
       {/* 채팅창 */}
-      <div className="fixed bottom-4 right-4">
+      <div className="fixed bottom-4 right-4 border-2 rounded-lg border-accent">
         {isChatOpen && <ChatWindow />}
         <button 
           className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg z-50"

@@ -6,30 +6,30 @@ const ChatWindow = () => {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [isComposing, setIsComposing] = useState(false); // 한글 입력 중 여부
+    const [isTyping, setIsTyping] = useState(false); // 타이핑 중 여부
     const messageEndRef = useRef(null);
 
     // 메시지 전송 함수 (서버와 통신)
     const sendMessage = (message) => {
         if (message.trim()) {
             // 전송한 메시지 클라이언트에 추가
-            console.log("Sending message:", message); // 전송은 된다.
             setMessages((prevMessages) => [...prevMessages, { text: message, type: 'outgoing' }]);
 
             // 서버에 메시지를 보내고 응답을 처리
-            fetch('http://127.0.0.1:5000/chat', {
+            setIsTyping(true);  // 서버 응답 기다리는 동안 타이핑 중 표시
+            fetch('https://www.dongjinhub.store/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ 
-                    message: message, // 'message'로 보내는 것 확인
+                    message: message,
                     mode: 'cors',
-                }), // 메시지 전달
+                }),
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log("Received data:", data); // 서버응답
-                    // 서버로부터 받은 응답을 클라이언트에 추가
+                    setIsTyping(false); // 응답 받으면 타이핑 중 표시 제거
                     if (data.response) {
                         setMessages((prevMessages) => [
                             ...prevMessages,
@@ -38,12 +38,12 @@ const ChatWindow = () => {
                     } else {
                         setMessages((prevMessages) => [
                             ...prevMessages,
-                            { text: 'Error: ' + data.error, type: 'incoming' },  // 서버 오류 메시지 표시
+                            { text: 'Error: ' + data.error, type: 'incoming' },
                         ]);
                     }
                 })
                 .catch((error) => {
-                    console.error('Error fetching response:', error);
+                    setIsTyping(false); // 에러 발생 시 타이핑 중 표시 제거
                     setMessages((prevMessages) => [
                         ...prevMessages,
                         { text: '서버와의 연결에 실패했습니다. 다시 시도해주세요.', type: 'incoming' },
@@ -93,8 +93,8 @@ const ChatWindow = () => {
 
     return (
         <div className="flex flex-col border border-primary rounded-lg shadow-lg h-[600px] w-[400px]">
-            <div className="bg-primary p-4 rounded-t-lg">
-                <h2 className="text-lg font-semibold">자기소개</h2>
+            <div className="bg-primary p-4 rounded-t-lg border-b-2 border-accent">
+                <h2 className="text-lg font-semibold">임동진에 대해서 물어보세요.</h2>
             </div>
             <div className="flex-grow overflow-y-auto p-4 bg-primary">
                 {messages.map((msg, index) => (
@@ -104,6 +104,14 @@ const ChatWindow = () => {
                         </span>
                     </div>
                 ))}
+
+                {/* 상대방이 타이핑 중일 때 표시 */}
+                {isTyping && (
+                    <div className="text-gray-500 mt-2 text-left">
+                        <span className="animate-pulse">...</span>
+                    </div>
+                )}
+
                 {/* 자동 스크롤 */}
                 <div ref={messageEndRef} />
             </div>
