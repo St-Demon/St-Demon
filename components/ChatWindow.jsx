@@ -17,7 +17,7 @@ const ChatWindow = () => {
 
             // 서버에 메시지를 보내고 응답을 처리
             setIsTyping(true);  // 서버 응답 기다리는 동안 타이핑 중 표시
-            fetch('https://www.dongjinhub.store/chat', {
+            fetch('https://www.backend.dongjinhub.store//chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
