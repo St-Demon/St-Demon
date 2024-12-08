@@ -1,16 +1,13 @@
 "use client"
 
 import { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { FiDownload } from "react-icons/fi";
-import Link from "next/link";
 
 // components
-import Socials from "/components/Socials";
-import Photo from "/components/Photo";
-import Stats from "/components/Stats";
-
-import ChatWindow from "/components/ChatWindow";
+import Socials from "/components/Socials"
+import Photo from "/components/Photo"
+import History from "/components/History"
+import ChatWindow from "/components/ChatWindow"
+import Contact from '/components/Contact'
 
 
 // 채팅창 기능
@@ -50,8 +47,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Stats/>
-
+      <History/>
+      <Contact/>
       {/* 채팅창 */}
       <div className="fixed bottom-4 right-4 border-2 rounded-lg border-accent">
         {isChatOpen && <ChatWindow />}

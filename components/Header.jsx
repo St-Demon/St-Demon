@@ -1,9 +1,4 @@
 import Link from "next/link"
-import { Button } from "./ui/button"
-
-// components
-import Nav from "./Nav"
-import MobileNav from "./MobileNav"
 
 const Header = () => {
   return (
@@ -15,18 +10,6 @@ const Header = () => {
                 임동진 <span className="text-accent">.</span>
             </h1>
             </Link>
-
-            {/* 상단 메뉴바 */}
-            <div className="hidden xl:flex items-center gap-8">
-                <Nav />
-            </div>
-
-            {/* mobile nav */}
-            <div className="xl:hidden">
-                <MobileNav />
-            </div>
-
-
         </div>
     
     </header>

@@ -9,6 +9,8 @@ const ChatWindow = () => {
     const [isTyping, setIsTyping] = useState(false); // 타이핑 중 여부
     const messageEndRef = useRef(null);
 
+    
+
     // 메시지 전송 함수 (서버와 통신)
     const sendMessage = (message) => {
         if (message.trim()) {

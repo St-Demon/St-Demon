@@ -1,9 +1,7 @@
 "use client"
 
-import { BsArrowDownRight } from "react-icons/bs"
-import Link from "next/link"
 import { motion } from "framer-motion"
-import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaFigma } from "react-icons/fa"
+import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma } from "react-icons/fa"
 import { SiNextdotjs, SiTailwindcss } from "react-icons/si"
 
 // services data
@@ -21,12 +19,6 @@ const services = [
     href: "#"
   },
   {
-    num: '자격/어학',
-    title: '',
-    description: '',
-    href: "#"
-  },
-  {
     num: '사용언어',
     title: '기술 스택',
     skillList: [
@@ -36,7 +28,6 @@ const services = [
       { icon: <FaReact />, name: "React" },
       { icon: <SiNextdotjs />, name: "Next.js" },
       { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-      { icon: <FaNodeJs />, name: "Node.js" },
     ],
     href: "#"
   },
