@@ -1,11 +1,11 @@
 import Link from "next/link"
 
-import { FaGithub, FaLinkedinIn, FaYoutube, FaTwitter, SiNaver } from "react-icons/fa"
+import { FaGithub } from "react-icons/fa"
 import { FaN } from "react-icons/fa6";
 
 
 const socials = [
-    {icon: <FaGithub />, path: "Https://github.com/St-Demon/St-Demon.git"},
+    {icon: <FaGithub />, path: "https://github.com/St-Demon"},
     {icon: <FaN />, path: "https://blog.naver.com/ttong_ji"},
 
 ]

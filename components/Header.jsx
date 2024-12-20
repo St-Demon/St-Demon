@@ -7,7 +7,7 @@ const Header = () => {
             {/* 로고 */}
             <Link href="/">
             <h1 className="text-4xl font-semibold">
-                임동진 <span className="text-accent">.</span>
+                동진's portfolio<span className="text-accent"></span>
             </h1>
             </Link>
         </div>
