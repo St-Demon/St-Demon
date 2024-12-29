@@ -1,15 +1,15 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// commponents
+// Components
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
-import Head from "next/head";
+import Script from "next/script";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weith: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"], // 수정됨
   variable: "--font-jetbrainsMono",
 });
 
@@ -21,30 +21,37 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>페이지 제목</title>
+        <meta name="description" content="페이지 설명" />
+        {/* 다른 메타데이터 */}
+      </head>
       <body className={jetbrainsMono.variable}>
-        <Head>
-          <title>Your Page Title</title>
-          <meta name="description" content="Your page description" />
-          {/* <Script>는 여기서 제거 */}
-        </Head>
-
-        {/* Script 컴포넌트를 Head 외부에 배치 */}
+        {/* Script 컴포넌트를 body 내에 배치 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'YOUR_GA_TRACKING_ID');
-        `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'YOUR_GA_TRACKING_ID');
+          `}
         </Script>
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
 
+        {/* 페이지의 헤더 */}
+        <Header />
+
+        {/* 페이지 전환 효과 */}
+        <PageTransition />
+
+        {/* 본문 */}
+        {children}
+
+        {/* 기타 컴포넌트 */}
+        <StairTransition />
       </body>
     </html>
   );
