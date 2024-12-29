@@ -5,9 +5,10 @@ import { useState } from "react";
 // components
 import History from "/components/History";
 import ChatWindow from "/components/ChatWindow";
-import Contact from "/components/Contact";
+import Aboutme from "/components/Aboutme";
 import Homescreen from "/components/Homescreen";
 import Project from "/components/Project";
+import Archiving from "/components/Archiving";
 
 // 채팅창 기능
 export default function Home() {
@@ -19,20 +20,25 @@ export default function Home() {
 
   return (
     <section className="h-full">
-      <div className="container mx-auto">
+      <div id="header" className="container mx-auto">
         <Homescreen toggleChat={toggleChat} />
       </div>
-      <div className="bg-[#ffffff] py-12">
+      <div id="socials" className="bg-[#010101] py-12">
+        <div className="container mx-auto">
+          <Archiving/>
+        </div>
+      </div>
+      <div id="history" className="bg-[#ffffff] py-12">
         <div className="container mx-auto">
           <History />
         </div>
       </div>
-      <div className="bg-[#f9c51d] text-black py-12">
+      <div id="aboutme" className="bg-[#f9c51d] text-black py-12">
         <div className="container mx-auto">
-          <Contact />
+          <Aboutme />
         </div>
       </div>
-      <div className="bg-[#ffffff] py-12">
+      <div id="projects" className="bg-[#ffffff] py-12">
         <div className="container mx-auto">
           <Project />
         </div>

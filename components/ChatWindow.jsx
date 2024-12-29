@@ -116,6 +116,11 @@ const ChatWindow = () => {
         }
     }, [messages]);
 
+    // Function to handle suggestion click
+    const handleSuggestionClick = (suggestion) => {
+        setInput(suggestion);
+    };
+
     return (
         <div className="flex flex-col border-2 border-#ffffff rounded-lg shadow-lg h-[600px] w-[400px]">
             <div className="bg-primary p-4 rounded-t-lg border-b-2 border-#ffffff">
@@ -148,6 +153,7 @@ const ChatWindow = () => {
                         <div
                             key={index}
                             className="px-4 py-2 bg-blue-500 text-white text-sm rounded-lg cursor-pointer"
+                            onClick={() => handleSuggestionClick(question)}
                         >
                             {question}
                         </div>

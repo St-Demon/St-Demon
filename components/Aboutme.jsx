@@ -17,7 +17,7 @@ const info = [
   {
     icon: <FaPhoneAlt />,
     title: "연락처",
-    description: "(+82) 010-1234-1234",
+    description: "010-1234-1234",
   },
   {
     icon: <FaEnvelope />,
@@ -43,18 +43,19 @@ const Contact = () => {
       animate={{
       opacity: 1,
       transition: { delay: 0, duration: 0.4, ease: "easeIn" },
+      
       }}
       className="py-6"
     >
       <div className="container mx-auto py-12">
-        <h3 className="text-center text-3xl font-bold mb-8">ABOUT ME</h3>
+        <h3 className="text-center text-5xl font-bold mb-16">ABOUT ME</h3>
         <div className="grid grid-cols-1 justify-items-center gap-[30px]">
           {/* info */}
             <ul className="grid grid-cols-3 justify-items-center items-center gap-10">
               {info.map((item, index) => {
                 return (
                   <li key={index} className="flex flex-col items-center text-center gap-4">
-                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-white rounded-md flex items-center justify-center">
                       <div className="text-[28px]">{item.icon}</div>
                     </div>
                     <div className="flex-1">

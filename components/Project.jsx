@@ -44,29 +44,41 @@ const Archiving = () => {
         opacity: 1,
         transition: { delay: 0, duration: 0.4, ease: "easeIn" },
       }}
+      className="py-16"
     >
-      <div className="container mx-auto">
-        <h3 className="text-center text-5xl text-black font-bold mb-10">PROJECTS</h3>
-        <div className="grid grid-cols-2 justify-items-center gap-[30px]">
+      <div className="container mx-auto px-4">
+        <h3 className="text-center text-5xl font-bold mb-12 text-black">PROJECTS</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div key={index} className="flex flex-col items-start text-left gap-4 border border-black p-4 rounded-md w-full">
-              <div className="flex-1">
-                <h4 className="text-xl font-bold text-black">{project.name}</h4>
-                <p className="text-sm text-gray-700">{project.period}</p>
-                <ul className="text-left list-disc pl-5 text-black">
+            <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border-2 border-black">
+              <div className="mb-4">
+                <div className="bg-red-500 text-white text-sm font-medium px-3 py-1 rounded-full w-fit mb-3">
+                  {project.name}
+                </div>
+                <div className="text-gray-600 text-sm mb-2">{project.period}</div>
+              </div>
+              
+              <div className="mb-4">
+                <ul className="space-y-2">
                   {project.summary.map((item, idx) => (
-                    <li key={idx}>{item}</li>
+                    <li key={idx} className="text-gray-700 text-sm leading-relaxed">
+                      • {item}
+                    </li>
                   ))}
                 </ul>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  {project.link}
-                </a>
-                <p className="text-sm text-gray-600">{project.techStacks}</p>
+              </div>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 text-sm block mb-2"
+              >
+                {project.link}
+              </a>
+
+              <div className="bg-yellow-50 rounded-md p-3">
+                <div className="text-sm text-gray-700">{project.techStacks}</div>
               </div>
             </div>
           ))}

@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react";
-import Socials from "/components/Socials";
 import Photo from "/components/Photo";
 import { motion } from "framer-motion"
 
@@ -29,12 +28,6 @@ const Homescreen = ({ toggleChat }) => {
           </p>
           {/* SNS */}
           <div className="flex flex-col xl:flex-row items-center gap-8">
-            <div className="mb-8 xl:mb-0">
-              <Socials
-                containerStyles="flex gap-6"
-                iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
-              />
-            </div>
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg z-50"
               onClick={toggleChat} // 제대로 전달된 함수 사용
