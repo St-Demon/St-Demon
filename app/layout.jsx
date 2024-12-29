@@ -23,20 +23,24 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={jetbrainsMono.variable}>
         <Head>
-          {/* Google tag (gtag.js) */}
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <title>Your Page Title</title>
+          <meta name="description" content="Your page description" />
+          {/* <Script>는 여기서 제거 */}
+        </Head>
+
+        {/* Script 컴포넌트를 Head 외부에 배치 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'YOUR_GA_TRACKING_ID');
-          `}
-          </Script>
-        </Head>
+        `}
+        </Script>
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
