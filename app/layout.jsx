@@ -24,18 +24,23 @@ export default function RootLayout({ children }) {
       <body className={jetbrainsMono.variable}>
         <Head>
           {/* Google tag (gtag.js) */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DDZDGDGBS"></script>
-          <script>
-            {`window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-1DDZDGDGBS');`}
-          </script>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'YOUR_GA_TRACKING_ID');
+          `}
+          </Script>
         </Head>
-        <Header/>
+        <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
-        
+
       </body>
     </html>
   );
